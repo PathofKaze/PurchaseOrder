@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Purchase form</h2>
+  <label>Login to our database and send in your expected delivery date and items for purchase</label>
+  <form>
+
+    <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+      <input type="name" class="form-control" id="username" placeholder="Please enter your username">
+    </div>
+
+    <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-eye-close"></i></span>
+      <input type="name" class="form-control" id="password" placeholder="Please enter your password">
+    </div>
+   
+<label></label>
+   
+<label>Items for purchase, please refer to this list of items</label>
+
+    <div class="form-group">
+      <label for="purchasedate">Delivery date:</label>
+      <input type="date" class="form-control" id="purchasedate">
+    </div>
+
+    <div class="form-group">
+        <table id="instructionsTable">
+            <tr>
+                <th><label class="control-label"></label></th>
+            </tr>
+                <tr>
+                    <td><input class="form-control" placeholder="ItemID" disabled/></td>
+                    <td><input class="form-control" placeholder="Item Quantity" disabled/></td>
+                </tr>
+                <span class="text-danger"></span>
+        </table>
+    </div>
+    <input id="addInputBtn" type="button" value="+" />
+
+  <script>
+    $(document).ready(function(){
+      var count = 0;
+        $("#addInputBtn").click(function(){ 
+            count++;
+            var newInput = "<tr><td><input class='form-control' id='ItemID%d(count)' /></td><td><input class='form-control' id='ItemID%d(count)' /></td></tr>";
+            $("#instructionsTable").append(newInput);
+        })
+    });
+  </script>
+
+<button type="button" class="btn btn-success">Submit</button>
+
+  </form>
+</div>
+
+</body> 
+</html>
